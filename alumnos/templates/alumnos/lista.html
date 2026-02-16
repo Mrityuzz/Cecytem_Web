@@ -5,7 +5,9 @@
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
   <h2>Lista de Alumnos</h2>
-  <a href="{% url 'agregar_alumno' %}" class="btn btn-success"> Agregar Alumno</a>
+  <a href="{% url 'agregar_alumno' %}" class="btn btn-success">
+    <i class="bi bi-person-plus-fill"></i> Agregar Alumno
+  </a>
 </div>
 
 {% if error %}
@@ -30,10 +32,14 @@
       <td>{{ a.telefono }}</td>
       <td>{{ a.carrera }}</td>
       <td>
-        <a href="{% url 'editar_alumno' a.id %}" class="btn btn-warning btn-sm">✏️ Editar</a>
+        <a href="{% url 'editar_alumno' a.id %}" class="btn btn-warning btn-sm">
+          <i class="bi bi-pencil-square"></i> Editar
+        </a>
         <a href="{% url 'eliminar_alumno' a.id %}" 
            class="btn btn-danger btn-sm"
-           onclick="return confirm('¿Seguro que deseas eliminar este alumno?');">🗑️ Eliminar</a>
+           onclick="return confirm('¿Seguro que deseas eliminar este alumno?');">
+          <i class="bi bi-trash-fill"></i> Eliminar
+        </a>
       </td>
     </tr>
     {% empty %}

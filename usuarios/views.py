@@ -10,7 +10,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("lista_alumnos")  # redirige al módulo alumnos
+            return redirect("dashboard") # ahora va al dashboard general
         else:
             messages.error(request, "Usuario o contraseña incorrectos")
     return render(request, "usuarios/login.html")

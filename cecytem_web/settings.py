@@ -59,7 +59,7 @@ ROOT_URLCONF = 'cecytem_web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # vacío porque usas templates dentro de cada app
+        'DIRS': [BASE_DIR / "templates"],  # vacío porque usas templates dentro de cada app
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

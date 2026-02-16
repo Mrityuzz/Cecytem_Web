@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Editar Alumno</title>
+    <style>
+      form {
+        margin-top: 20px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input {
+        width: 300px;
+        padding: 5px;
+      }
+      button {
+        margin-top: 15px;
+        padding: 8px 15px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Editar Alumno</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label>Nombre:</label>
+      <input type="text" name="nombre" value="{{ alumno.nombre }}" required />
+
+      <label>Número de Control:</label>
+      <input
+        type="text"
+        name="num_control"
+        value="{{ alumno.num_control }}"
+        required
+      />
+
+      <label>Teléfono:</label>
+      <input type="text" name="telefono" value="{{ alumno.telefono }}" />
+
+      <label>Carrera:</label>
+      <input type="text" name="carrera" value="{{ alumno.carrera }}" required />
+
+      <button type="submit">Actualizar</button>
+    </form>
+
+    <a href="{% url 'lista_alumnos' %}">⬅️ Volver a la lista</a>
+  </body>
+</html>

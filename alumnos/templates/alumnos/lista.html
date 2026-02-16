@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Alumnos</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 15px;
+      }
+      th,
+      td {
+        border: 1px solid #666;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      a {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Lista de Alumnos</h2>
+    <a href="{% url 'agregar_alumno' %}">➕ Agregar Alumno</a>
+    {% if error %}
+      <p style="color: red">{{ error }}</p>
+    {% endif %}
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Número de Control</th>
+        <th>Teléfono</th>
+        <th>Carrera</th>
+        <th>Acciones</th>
+      </tr>
+      {% for a in alumnos %}
+      <tr>
+        <td>{{ a.nombre }}</td>
+        <td>{{ a.num_control }}</td>
+        <td>{{ a.telefono }}</td>
+        <td>{{ a.carrera }}</td>
+        <td>
+          <a href="{% url 'editar_alumno' a.id %}">✏️ Editar</a>
+          <a href="{% url 'eliminar_alumno' a.id %}" 
+             onclick="return confirm('¿Seguro que deseas eliminar este alumno?');">🗑️ Eliminar</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5">No hay alumnos registrados.</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

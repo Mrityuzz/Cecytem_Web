@@ -52,29 +52,48 @@
 
     {% if error %}
     <p class="error">{{ error }}</p>
-    {% endif %} {% if alumnos %}
-    <table>
-      <tr>
-        <th>Alumno</th>
-        <th>Número de Control</th>
-        <th>Teléfono</th>
-        <th>Carrera</th>
-        <th>Entrada</th>
-        <th>Salida</th>
-      </tr>
-      {% for alumno in alumnos %}
-      <tr>
-        <td>{{ alumno.alumno }}</td>
-        <td>{{ alumno.num_control }}</td>
-        <td>{{ alumno.telefono }}</td>
-        <td>{{ alumno.carrera }}</td>
-        <td>{{ alumno.entrada|default:"-" }}</td>
-        <td>{{ alumno.salida|default:"-" }}</td>
-      </tr>
-      {% endfor %}
-    </table>
-    {% else %}
-    <p>No hay alumnos registrados en el archivo.</p>
     {% endif %}
+
+    <table>
+      <thead>
+        <tr>
+          <th>Alumno</th>
+          <th>Número de Control</th>
+          <th>Teléfono</th>
+          <th>Carrera</th>
+          <th>Entrada</th>
+          <th>Salida</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se llenará dinámicamente -->
+      </tbody>
+    </table>
+
+    <script>
+      async function actualizarTabla() {
+        const response = await fetch("{% url 'lista_asistencia_json' %}");
+        const data = await response.json();
+        const tbody = document.querySelector("table tbody");
+        tbody.innerHTML = "";
+        data.alumnos.forEach((a) => {
+          const fila = `<tr>
+            <td>${a.alumno || "-"}</td>
+            <td>${a.num_control || "-"}</td>
+            <td>${a.telefono || "-"}</td>
+            <td>${a.carrera || "-"}</td>
+            <td>${a.entrada || "-"}</td>
+            <td>${a.salida || "-"}</td>
+          </tr>`;
+          tbody.innerHTML += fila;
+        });
+      }
+
+      // Actualiza cada 5 segundos
+      setInterval(actualizarTabla, 5000);
+
+      // Carga inicial
+      actualizarTabla();
+    </script>
   </body>
 </html>

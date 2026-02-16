@@ -8,4 +8,6 @@ urlpatterns = [
     path("descargar/", views.descargar_excel, name="descargar_excel"),
     path("json/", views.lista_asistencia_json, name="lista_asistencia_json"),
     path("alumnos/", include("alumnos.urls")),
+    path("usuarios/", include("usuarios.urls")),
+
 ]

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+</head>
+<body>
+  <h2>Registrar Usuario</h2>
+  {% if messages %}
+    {% for m in messages %}
+      <p style="color:red;">{{ m }}</p>
+    {% endfor %}
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <label>Usuario:</label>
+    <input type="text" name="username" required>
+    <label>Contraseña:</label>
+    <input type="password" name="password" required>
+    <button type="submit">Crear</button>
+  </form>
+  <a href="{% url 'login' %}">Volver al login</a>
+</body>
+</html>

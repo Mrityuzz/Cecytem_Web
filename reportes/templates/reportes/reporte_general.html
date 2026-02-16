@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte General</title>
+</head>
+<body>
+  <h2>Reporte General</h2>
+
+  <h3>Alumnos por carrera</h3>
+  <ul>
+    {% for carrera, cantidad in conteo_carreras.items %}
+      <li>{{ carrera }}: {{ cantidad }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Total de alumnos registrados</h3>
+  <p>{{ total_alumnos }}</p>
+
+  <a href="{% url 'lista_alumnos' %}">⬅️ Volver a alumnos</a>
+</body>
+</html>

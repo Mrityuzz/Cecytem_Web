@@ -9,5 +9,7 @@ urlpatterns = [
     path("json/", views.lista_asistencia_json, name="lista_asistencia_json"),
     path("alumnos/", include("alumnos.urls")),
     path("usuarios/", include("usuarios.urls")),
+    path("reportes/", include("reportes.urls")),
+
 
 ]

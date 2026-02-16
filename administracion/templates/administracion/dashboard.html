@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Panel de Administración</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h2 {
+        color: #333;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        margin: 10px 0;
+      }
+      a {
+        text-decoration: none;
+        color: #0066cc;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Panel de Administración</h2>
+    <ul>
+      <li><a href="{% url 'lista_alumnos' %}">📘 Gestión de Alumnos</a></li>
+      <li><a href="{% url 'reporte_general' %}">📊 Reportes</a></li>
+      <li><a href="{% url 'login' %}">👤 Usuarios</a></li>
+      <a href="{% url 'lista_asistencia' %}">📝 Asistencia</a>
+    </ul>
+  </body>
+</html>

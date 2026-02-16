@@ -1,11 +1,9 @@
 from django.shortcuts import render
 import openpyxl
 from collections import Counter
-import os
-from django.conf import settings
 
-# Usamos solo BD_Alumnos.xlsx
-EXCEL_ALUMNOS = os.path.join(settings.BASE_DIR, "base_datos", "BD_Alumnos.xlsx")
+# Ruta absoluta al archivo en cecytem_proyecto
+EXCEL_ALUMNOS = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\cecytem_proyecto\base_datos\BD_Alumnos.xlsx"
 
 def reporte_general(request):
     # --- Alumnos por carrera ---

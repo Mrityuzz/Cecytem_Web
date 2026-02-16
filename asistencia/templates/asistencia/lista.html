@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Asistencia</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 15px;
+      }
+      th,
+      td {
+        border: 1px solid #666;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+      form {
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista de Alumnos</h1>
+
+    <!-- Filtro por carrera -->
+    <form method="get">
+      <label for="carrera">Filtrar por carrera:</label>
+      <select name="carrera" id="carrera">
+        <option value="">Todas</option>
+        <option value="Electrónica">Electrónica</option>
+        <option value="Programación">Programación</option>
+        <option value="Laboratorista químico">Laboratorista químico</option>
+        <option value="Procesos de gestión administrativa">
+          Procesos de gestión administrativa
+        </option>
+      </select>
+      <button type="submit">Filtrar</button>
+    </form>
+
+    <!-- Botón de descarga -->
+    <p>
+      <a href="{% url 'descargar_excel' %}">📥 Descargar Excel</a>
+    </p>
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %} {% if alumnos %}
+    <table>
+      <tr>
+        <th>Alumno</th>
+        <th>Número de Control</th>
+        <th>Teléfono</th>
+        <th>Carrera</th>
+        <th>Entrada</th>
+        <th>Salida</th>
+      </tr>
+      {% for alumno in alumnos %}
+      <tr>
+        <td>{{ alumno.alumno }}</td>
+        <td>{{ alumno.num_control }}</td>
+        <td>{{ alumno.telefono }}</td>
+        <td>{{ alumno.carrera }}</td>
+        <td>{{ alumno.entrada|default:"-" }}</td>
+        <td>{{ alumno.salida|default:"-" }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>No hay alumnos registrados en el archivo.</p>
+    {% endif %}
+  </body>
+</html>

@@ -3,7 +3,7 @@ import openpyxl
 from collections import Counter
 
 # Ruta absoluta al archivo en cecytem_proyecto
-EXCEL_ALUMNOS = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\cecytem_proyecto\base_datos\BD_Alumnos.xlsx"
+EXCEL_ALUMNOS = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\proyecto_cecytem\base_datos\BD_Alumnos.xlsx"
 
 def reporte_general(request):
     # --- Alumnos por carrera ---

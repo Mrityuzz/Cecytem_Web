@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 import openpyxl
 
 # Ruta absoluta al Excel
-EXCEL_PATH = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\cecytem_proyecto\base_datos\BD_Alumnos.xlsx"
+EXCEL_PATH = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\proyecto_cecytem\base_datos\BD_Alumnos.xlsx"
 
 def lista_alumnos(request):
     alumnos = []

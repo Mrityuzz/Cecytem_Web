@@ -15,6 +15,14 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Ruta oficial del proyecto_cecytem 
+PROYECTO_CECYTEM_PATH = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\proyecto_cecytem"
+
+IMAGENES_PATH = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\proyecto_cecytem\credenciales\imagenes" 
+MEDIA_ROOT = IMAGENES_PATH 
+MEDIA_URL = "/media/"
+
+BASE_DATOS_PATH = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\proyecto_cecytem\base_datos\BD_Alumnos.xlsx"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/

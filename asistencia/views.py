@@ -4,7 +4,7 @@ import openpyxl
 import os
 
 # Ruta absoluta al Excel en tu proyecto_cecytem
-EXCEL_PATH = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\cecytem_proyecto\base_datos\BD_Alumnos.xlsx"
+EXCEL_PATH = r"C:\Users\macie\OneDrive\Escritorio\TI\11mo Cuatrimestre Estadias\proyecto_cecytem\base_datos\BD_Alumnos.xlsx"
 
 def lista_asistencia(request):
     ruta_excel = EXCEL_PATH
